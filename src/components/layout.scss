@@ -1,0 +1,55 @@
+@import '/src/variables.scss';
+
+/* SHARED */
+%header-footer-wrapper {
+    max-width: 1350px;
+    height: 100%;
+    padding: 0 5rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* HEADER */
+.global-header {
+    width: 100%;
+    height: 5em;
+    .header-content-wrapper {
+        @extend %header-footer-wrapper;
+        .logo-wrapper {
+            float: left;
+        }
+        .main-nav {
+            float: right;
+            margin: 0;
+            .list {
+                margin: 0;
+                display: flex;
+                .item {
+                    list-style: none;
+                    margin-left: 5rem;
+                }
+            }
+        }
+        :link, :visited {
+            color: $colorFont;
+            text-decoration: none;
+        }
+    }
+}
+
+/* MAIN */
+.main-wrapper {
+    max-width: 1350px;
+    padding: 0 5rem;
+    margin: auto;
+}
+
+/* FOOTER */
+.global-footer {
+    width: 100%;
+    .footer-content-wrapper {
+        @extend %header-footer-wrapper;
+    }
+}

@@ -1,0 +1,33 @@
+@import '/src/variables.scss';
+
+%categories {
+    .javascript { background-color: #ecd716; }
+    .accessibilite { background-color: #fb37ff; }
+    .all { background-color: $colorOne; }
+}
+
+.category-wrapper {
+    @extend %categories;
+    display: grid;
+    grid-template-columns: min-content;
+    text-decoration: none;
+    color: $colorFont;
+    .bullet {
+        width: 0.7rem;
+        height: 100%;
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        transition: width 0.5s;
+    }
+    .bullet:hover, .bullet:active, .category:hover + .bullet, .category:active + .bullet {
+        width: 100%;
+    }
+    .category {
+        background-color: transparent;
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        margin-left: 0.7rem;
+        padding-left: 0.7rem;
+        z-index: 2;
+    }
+}

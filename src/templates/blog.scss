@@ -1,0 +1,52 @@
+@import '/src/variables.scss';
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .articles {
+        max-width: 60rem;
+        flex-grow: 2;
+        .list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+            column-gap: 2rem;
+            row-gap: 4rem;
+            .item {
+                width: 25rem;
+                .title {
+                    font-size: $fontSize-4;
+                    margin: 1rem 0;
+                }
+                :link, :visited {
+                    color: $colorFont;
+                    text-decoration: none;
+                }
+                .title:hover, .title:active, .thumbnail:hover ~.title {
+                    color: $colorOne;
+                }
+                .infos-wrapper {
+                    display: grid;
+                    grid-template-columns: min-content auto;
+                    .category-wrapper {
+                        grid-column: 1 / span 1;
+                    }
+                    .date {
+                        grid-column: 2 / span 1;
+                    }
+                }
+            }
+        }
+    }
+    .side-content {
+        flex-grow: 1;
+        margin-left: 5rem;
+        max-width: 15rem;
+        .category-list {
+            list-style: none;
+        }
+    }
+}
