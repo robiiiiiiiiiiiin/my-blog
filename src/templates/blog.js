@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Category from "../components/category"
+import Pagination from "../components/pagination"
 import SEO from "../components/seo"
 import Image from "gatsby-image"
 
@@ -12,10 +13,8 @@ const BlogIndex = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.posts.nodes
   const categories = data.categories.group
-  const { tag } = pageContext
-  const h1Title = tag ? tag[0] : "Tous les articles"
-
-  console.log(h1Title)
+  const { tag, currentPage, numPages } = pageContext
+  const h1Title = (tag.length <= 1) ? tag[0] : "Tous les articles"
 
   if (posts.length === 0) {
     return (
@@ -63,6 +62,9 @@ const BlogIndex = ({ data, location, pageContext }) => {
               )
             })}
           </ol>
+          
+          <Pagination currentPage={currentPage} numPages={numPages}></Pagination>
+
         </div>
         <aside className="side-content">
             <div className="categories-wrapper">
@@ -93,7 +95,7 @@ const BlogIndex = ({ data, location, pageContext }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query ($tag: [String]){
+  query ($tag: [String], $skip: Int!, $limit: Int!){
     site {
       siteMetadata {
         title
@@ -102,6 +104,8 @@ export const pageQuery = graphql`
     posts: allMarkdownRemark(
             sort: { fields: [frontmatter___date], order: DESC }
             filter: { frontmatter: { tags: { in: $tag } } }
+            limit: $limit
+            skip: $skip
         ) {
       nodes {
         excerpt

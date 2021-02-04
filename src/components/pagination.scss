@@ -1,0 +1,34 @@
+@import '/src/variables.scss';
+
+.pagination-nav {
+    .items {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        font-family: $fontTitle;
+        li {
+            a {
+                text-decoration: none;
+                color: $colorFont;
+                font-weight: 400;
+                position: relative;
+                &:not(.big-button).current:after, &:not(.big-button):hover:after {
+                    position: absolute;
+                    content: '';
+                    height: 3px;
+                    bottom: -3px;
+                    width: 150%;
+                    margin: 0 auto;
+                    right: -25%;
+                    background: $colorOne;
+                }
+                &.big-button:hover {
+                    color: $colorOne;
+                }
+            }
+        }
+        * + * {
+            margin-left: 1.5rem;
+        }
+    }
+}

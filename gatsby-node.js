@@ -1,5 +1,5 @@
 const path = require(`path`)
-const _ = require("lodash")
+const __ = require("lodash")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -27,7 +27,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
         tagsGroup: allMarkdownRemark(limit: 2000) {
           group(field: frontmatter___tags) {
-            fieldValue
+            name: fieldValue
+            totalCount
           }
         }
       }
@@ -42,7 +43,27 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
+  /**
+   * VARIABLES
+   * 
+   */
+
+  // Extract posts
   const posts = result.data.posts.nodes
+  
+  // Extract tag data from query
+  const tags = result.data.tagsGroup.group
+  const tagNames = result.data.tagsGroup.group.map(elem => elem.name)
+
+  //Pagination
+  const postsPerPage = 8
+
+
+
+  /**
+   * PAGE CREATION
+   * 
+   */
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -65,26 +86,48 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   }
 
-
-  // Extract tag data from query
-  const tags = result.data.tagsGroup.group.map(elem => elem.fieldValue)
-  
-  // Make blog pages
+  // Create blog pages
   tags.forEach(tag => {
+    const numPages = Math.ceil(tag.totalCount / postsPerPage)
+
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/categorie/${__.lowerCase(tag.name).replace(/\s+/g, '')}/` : `/categorie/${__.lowerCase(tag.name).replace(/\s+/g, '')}/${i + 1}`,
+        component: blogTemplate,
+        context: {
+          tag: [tag.name],
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+        },
+      })
+    })
+
+    /* OLD WAY WITHOUT PAGNINATION
     createPage({
-      path: `/categorie/${_.lowerCase(tag).replace(/\s+/g, '')}/`,
+      path: `/categorie/${__.lowerCase(tag).replace(/\s+/g, '')}/`,
       component: blogTemplate,
       context: {
         tag: [tag],
       },
-    })
+    }) */
+
   })
-  createPage({
-    path: `/`,
-    component: blogTemplate,
-    context: {
-      tag: tags,
-    },
+  const numPages = Math.ceil(posts.length / postsPerPage)
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? "/" : `/${i + 1}`,
+      component: blogTemplate,
+      context: {
+        tag: tagNames,
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
   })
 }
 
