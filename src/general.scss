@@ -3,6 +3,7 @@
 body {
     margin: 0;
     font-family: $fontRegular;
+    font-size: $fontSize-1;
     color: $colorFont;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -31,5 +32,8 @@ h1, h2 {
         width: 66%;
         right: 0;
         background: $colorOne;
+        @media screen and (max-width: 576px) {
+            left: 0
+        }
     }
 }

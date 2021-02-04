@@ -46,6 +46,7 @@
     .side-content {
         margin-left: 3rem;
         @media screen and (max-width: 768px) { margin-left: 2rem; }
+        @media screen and (max-width: 576px) { margin-left: 0; }
         .category-list {
             margin: 0;
             list-style: none;
@@ -53,6 +54,7 @@
             .item {
                 margin-bottom: 0.5rem;
             }
+            margin-bottom: 2rem;
         }
     }
 }

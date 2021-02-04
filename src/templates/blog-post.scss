@@ -1,0 +1,30 @@
+@import '/src/variables.scss';
+
+.blog-post {
+    max-width: 900px;
+    margin: auto;
+    header {
+        h1 {
+            margin: 0;
+        }
+        p {
+            margin: 0.5rem 0 0 0;
+            display: flex;
+            :link, :visited {
+                color: $colorFont;
+            }
+        }
+    }
+    .share-btns {
+        margin: 1rem 0;
+    }
+    .article-text {
+        margin-top: 4rem;
+        h2,h3,h4,h5 {
+            margin: 2rem 0 0 0;
+        }
+    }
+    :link, :visited {
+        color: $colorOne;
+    }
+}

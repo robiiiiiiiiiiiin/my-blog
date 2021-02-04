@@ -1,8 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
 import "./layout.scss"
+import Menu from "./menu"
+const { useState } = React;
 
 const Layout = ({ location, children }) => {
+  const [isOpen, setOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setOpen(!isOpen);
+  };
 
   return (
     <div className="global-wrapper">
@@ -11,12 +18,14 @@ const Layout = ({ location, children }) => {
           <div className="logo-wrapper">
             <Link to="/"><span>G</span><span className="flipped-letter">BLO</span></Link>
           </div>
-          <nav className="main-nav">
-            <ul className="list">
-              <li className="item"><Link to="/">BLOG</Link></li>
-              <li className="item"><Link to="/cine">CINÉ</Link></li>
-              <li className="item"><Link to="/a-propos">À PROPOS</Link></li>
-            </ul>
+          <nav className="main-nav desktop">
+              <Menu></Menu>
+          </nav>
+          <button className={`burger-btn ${(isOpen)?"opened":""}`} onClick={toggleMobileMenu} aria-label="afficher le menu"><span></span><span></span><span></span><span></span><span></span><span></span></button>
+        </div>
+        <div className="mobile-nav-wrapper">
+          <nav className={`main-nav mobile ${(isOpen)?"opened":""}`}>
+                <Menu></Menu>
           </nav>
         </div>
       </header>
@@ -24,9 +33,7 @@ const Layout = ({ location, children }) => {
       <footer className="global-footer">
         <div className="footer-content-wrapper">
           <div>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.com">Gatsby</a>
+            © {new Date().getFullYear()}
           </div>
         </div>
       </footer>

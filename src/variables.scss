@@ -9,7 +9,7 @@
 @import "~@fontsource/kufam/700.css";
 
 $fontSize-0: 0.833rem;
-$fontSize-1: 1rem;
+$fontSize-1: 1.1rem;
 $fontSize-2: 1.2rem;
 $fontSize-3: 1.44rem;
 $fontSize-4: 1.728rem;
@@ -27,3 +27,6 @@ $colorFont: #222222;
     vertical-align: -0.16em;
 }
 
+$heightHeader: 5rem;
+$heightFooter: 2rem;
+$heightMain: calc(100vh - 7rem)
