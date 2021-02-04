@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Category from "../components/category"
 import SEO from "../components/seo"
@@ -9,18 +8,19 @@ import Image from "gatsby-image"
 
 import "./blog.scss"
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.posts.nodes
   const categories = data.categories.group
+  const { tag } = pageContext
+  const h1Title = tag ? tag[0] : "Tous les articles"
 
-  console.log(categories)
+  console.log(h1Title)
 
   if (posts.length === 0) {
     return (
       <Layout location={location}>
         <SEO title="All posts" />
-        <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -33,7 +33,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
+      <h1>{h1Title.toUpperCase()}</h1>
       <section className="main-content">
         <div className="articles">
           <ol className="list">
@@ -66,17 +66,17 @@ const BlogIndex = ({ data, location }) => {
         </div>
         <aside className="side-content">
             <div className="categories-wrapper">
-              <h2 className="title">Catégories</h2>
+              <h2 className="title">CATÉGORIES</h2>
               <ul className="category-list">
                 {categories.map(category => {
 
                   return (
-                    <li>
+                    <li className="item" key={category.tag}>
                       <Category category={category.tag}></Category>
                     </li>
                   )
                 })}
-                <li>
+                <li className="item">
                   <Link to="/" className="category-wrapper" itemProp="url">
                       <div className="category">Tous&nbsp;</div>
                       <div className="all bullet"></div>

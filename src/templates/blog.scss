@@ -2,7 +2,8 @@
 
 .main-content {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    @media screen and (max-width: 576px) { flex-wrap: wrap; }
     justify-content: space-between;
     .articles {
         max-width: 60rem;
@@ -12,13 +13,14 @@
             margin: 0;
             padding: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-            column-gap: 2rem;
-            row-gap: 4rem;
+            @media screen and (min-width: 1200px) { grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr)); }
+            @media screen and (max-width: 1200px) { grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }
+            column-gap: 4rem;
+            row-gap: 3rem;
             .item {
-                width: 25rem;
+                width: 100%;
+                //@media screen and (min-width: 1200px) { max-width: 25rem; }
                 .title {
-                    font-size: $fontSize-4;
                     margin: 1rem 0;
                 }
                 :link, :visited {
@@ -42,11 +44,15 @@
         }
     }
     .side-content {
-        flex-grow: 1;
-        margin-left: 5rem;
-        max-width: 15rem;
+        margin-left: 3rem;
+        @media screen and (max-width: 768px) { margin-left: 2rem; }
         .category-list {
+            margin: 0;
             list-style: none;
+            padding: 0;
+            .item {
+                margin-bottom: 0.5rem;
+            }
         }
     }
 }

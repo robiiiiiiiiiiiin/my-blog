@@ -3,7 +3,33 @@
 body {
     margin: 0;
     font-family: $fontRegular;
+    color: $colorFont;
 }
 h1, h2, h3, h4, h5, h6 {
-    margin-top: 0
+    display: inline-block;
+    margin-top: 0;
+    text-decoration: none; 
+    position: relative;
+
+}
+h1 { 
+    font-size: $fontSize-5;
+    font-family: $fontTitle;
+}
+h2 { 
+    font-size: $fontSize-3;
+    font-family: $fontTitle;
+    line-height: 1.5em;
+}
+h3 { font-size: $fontSize-3; }
+h1, h2 {
+    &:after {
+        position: absolute;
+        content: '';
+        height: 3px;
+        bottom: 1px;
+        width: 66%;
+        right: 0;
+        background: $colorOne;
+    }
 }

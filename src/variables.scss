@@ -4,6 +4,8 @@
 @import "~@fontsource/fira-sans/300-italic.css";
 @import "~@fontsource/fira-sans/400-italic.css";
 @import "~@fontsource/fira-sans/500-italic.css";
+@import "~@fontsource/kufam/600.css";
+@import "~@fontsource/kufam/700.css";
 
 $fontSize-0: 0.833rem;
 $fontSize-1: 1rem;
@@ -15,7 +17,12 @@ $fontSize-6: 2.488rem;
 $fontSize-7: 2.986rem;
 
 $fontRegular: "Fira Sans",  sans-serif;
+$fontTitle: "Kufam",  sans-serif;
 
 $colorOne: #007476;
 $colorFont: #222222;
+
+%correctKufamAlign {
+    vertical-align: -0.16em;
+}
 
