@@ -56,7 +56,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const tagNames = result.data.tagsGroup.group.map(elem => elem.name)
 
   //Pagination
-  const postsPerPage = 8
+  const postsPerPage = 6
 
 
 

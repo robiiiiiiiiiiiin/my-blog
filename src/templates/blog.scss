@@ -22,23 +22,11 @@
                 //@media screen and (min-width: 1200px) { max-width: 25rem; }
                 .title {
                     margin: 1rem 0;
-                }
-                :link, :visited {
-                    color: $colorFont;
-                    text-decoration: none;
+                        color: $colorFont;
+                        text-decoration: none;
                 }
                 .title:hover, .title:active, .thumbnail:hover ~.title {
                     color: $colorOne;
-                }
-                .infos-wrapper {
-                    display: grid;
-                    grid-template-columns: min-content auto;
-                    .category-wrapper {
-                        grid-column: 1 / span 1;
-                    }
-                    .date {
-                        grid-column: 2 / span 1;
-                    }
                 }
             }
         }

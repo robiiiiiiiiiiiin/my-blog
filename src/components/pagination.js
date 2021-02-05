@@ -2,10 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 import "./pagination.scss"
 
-const Pagination = ({currentPage, numPages}) => {
+const Pagination = ({location, currentPage, numPages}) => {
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
-    const url = window.location.pathname.replace(/\/$/, '') // url without last slash if there is one
+    const url = location.pathname.replace(/\/$/, '') // url without last slash if there is one
     const currentLocation = currentPage === 1 ? url : url.substring(0, url.lastIndexOf("/") + 1).replace(/\/$/, '') // url without last element without last slash
     const prevPage = currentPage - 1 === 1 ? currentLocation+'/' : currentLocation+'/'+(currentPage - 1)
     const nextPage = currentLocation+'/'+(currentPage + 1)
@@ -24,7 +24,7 @@ const Pagination = ({currentPage, numPages}) => {
                     {currentPage >= 4 && ( <span>...</span> )}
 
                     {isFirst && ( <>
-                        <li><Link to={`${currentLocation}/1`} className="current">1</Link></li>
+                        <li><Link to={`${currentLocation}/`} className="current">1</Link></li>
                         <li><Link to={`${currentLocation}/2`} >2</Link></li>
                         <li><Link to={`${currentLocation}/3`} >3</Link></li>
                     </> )}
@@ -60,8 +60,8 @@ const Pagination = ({currentPage, numPages}) => {
                     )}
 
                     {Array.from({ length: numPages }, (_, i) => (
-                        <li>
-                            <Link key={`pagination-number${i + 1}`} to={`${currentLocation}/${i === 0 ? "" : i + 1}`} className={(currentPage === i+1) ? "current" : ""}>
+                        <li key={`pagination-number${i + 1}`} >
+                            <Link to={`${currentLocation}/${i === 0 ? "" : i + 1}`} className={(currentPage === i+1) ? "current" : ""}>
                                 {i + 1}
                             </Link>
                         </li>

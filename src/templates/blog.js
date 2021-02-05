@@ -6,6 +6,7 @@ import Category from "../components/category"
 import Pagination from "../components/pagination"
 import SEO from "../components/seo"
 import Image from "gatsby-image"
+import PostInfos from "../components/post-infos"
 
 import "./blog.scss"
 
@@ -19,7 +20,7 @@ const BlogIndex = ({ data, location, pageContext }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location}>
-        <SEO title="All posts" />
+        <SEO title={h1Title} />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -31,7 +32,7 @@ const BlogIndex = ({ data, location, pageContext }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title={h1Title} />
       <h1>{h1Title.toUpperCase()}</h1>
       <section className="main-content">
         <div className="articles">
@@ -47,10 +48,7 @@ const BlogIndex = ({ data, location, pageContext }) => {
                       <Image className="thumbnail" fluid={thumbnail} />
                       <h3 className="title">{title}</h3>
                     </Link>
-                    <div className="infos-wrapper">
-                      <Category category={post.frontmatter.tags[0]}></Category>
-                      <div className="date">&nbsp;-&nbsp;&nbsp;{post.frontmatter.date}</div>
-                    </div>
+                    <PostInfos category={post.frontmatter.tags[0]} date={post.frontmatter.date}></PostInfos>
                     <p className="description"
                       dangerouslySetInnerHTML={{
                         __html: post.frontmatter.description || post.excerpt,
@@ -63,7 +61,7 @@ const BlogIndex = ({ data, location, pageContext }) => {
             })}
           </ol>
           
-          <Pagination currentPage={currentPage} numPages={numPages}></Pagination>
+          <Pagination location={location} currentPage={currentPage} numPages={numPages}></Pagination>
 
         </div>
         <aside className="side-content">

@@ -1,0 +1,13 @@
+@import '/src/variables.scss';
+
+.post-infos {
+    display: flex;
+    font-size: $fontSize-0;
+    color: $colorFontLight;
+    .category-wrapper {
+        color: $colorFontLight;
+        &:link, &:visited {
+            color: $colorFontLight;
+        }
+    }
+}

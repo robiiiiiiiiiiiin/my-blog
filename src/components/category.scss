@@ -11,7 +11,6 @@
     display: grid;
     grid-template-columns: min-content;
     text-decoration: none;
-    color: $colorFont;
     .bullet {
         width: 0.7rem;
         height: 100%;
@@ -29,5 +28,13 @@
         margin-left: 0.7rem;
         padding-left: 0.7rem;
         z-index: 2;
+        transition: color 0.5s;
+    }
+    &:link, &:visited {
+        color: $colorFont;
+    }
+    :hover {
+        color: white;
+        transition: color 0.5s;
     }
 }

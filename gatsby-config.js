@@ -1,14 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `GOLB | blog web et tech`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Robin Bécherraz`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `GOLB, un blog parlant de web, de tech, de ciné, qui pose pleins de questions et qui tente parfois d'y répondre.`,
+    siteUrl: `https://golb.ch`,
     social: {
-      twitter: `kylemathews`,
     },
   },
   plugins: [
@@ -61,13 +59,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `GOLB | blog web et tech`,
+        short_name: `GOLB`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#007476`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `static/favicon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,

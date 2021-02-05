@@ -5,8 +5,8 @@ import "./blog-post.scss"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Graphcomment from "../components/graphcomment"
-import Category from "../components/category"
 import ShareButtons from "../components/sharebuttons"
+import PostInfos from "../components/post-infos"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -29,13 +29,13 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p><Category category={post.frontmatter.tags[0]}></Category><span> - {post.frontmatter.date}</span></p>
+          <PostInfos category={post.frontmatter.tags[0]} date={post.frontmatter.date}></PostInfos>
         </header>
-        <ShareButtons title={title} url={url} tags={tags}/>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody" className="article-text"
         />
+        <ShareButtons title={title} url={url} tags={tags}/>
         <hr />
       </article>
       <Graphcomment></Graphcomment>

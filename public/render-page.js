@@ -122,19 +122,19 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-manifest/gatsby-ssr */ "./node_modules/gatsby-plugin-manifest/gatsby-ssr.js"),
   options: {
     "plugins": [],
-    "name": "Gatsby Starter Blog",
-    "short_name": "GatsbyJS",
+    "name": "GOLB | blog web et tech",
+    "short_name": "GOLB",
     "start_url": "/",
     "background_color": "#ffffff",
-    "theme_color": "#663399",
+    "theme_color": "#007476",
     "display": "minimal-ui",
-    "icon": "content/assets/gatsby-icon.png",
+    "icon": "static/favicon.png",
     "legacy": true,
     "theme_color_in_head": true,
     "cache_busting_mode": "query",
     "crossOrigin": "anonymous",
     "include_favicon": true,
-    "cacheDigest": "4a9773549091c227cd2eb82ccd9c5e3a"
+    "cacheDigest": "6721ba110a74b89b6aa253dabff318fa"
   }
 }, {
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-react-helmet/gatsby-ssr */ "./node_modules/gatsby-plugin-react-helmet/gatsby-ssr.js"),
