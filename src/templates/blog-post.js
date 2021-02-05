@@ -13,14 +13,15 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { title, tags } = post.frontmatter
   const url = location.href;
-
-  console.log(url)
+  const thumbnail = post.frontmatter.thumbnail.childImageSharp.fluid.src
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        image={thumbnail}
+        type="article"
       />
       <article
         className="blog-post"
@@ -65,6 +66,13 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM YYYY", locale: "fr")
         description
         tags
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

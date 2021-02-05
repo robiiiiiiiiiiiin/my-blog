@@ -32,7 +32,7 @@ const BlogIndex = ({ data, location, pageContext }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={h1Title} />
+      <SEO title={h1Title} type="website" />
       <h1>{h1Title.toUpperCase()}</h1>
       <section className="main-content">
         <div className="articles">
