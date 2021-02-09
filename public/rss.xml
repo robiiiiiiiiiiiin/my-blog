@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[GOLB | blog web et tech]]></title><description><![CDATA[GOLB, un blog parlant de web, de tech, de ciné, qui pose pleins de questions et qui tente parfois d'y répondre.]]></description><link>https://golb.ch</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 05 Feb 2021 14:33:56 GMT</lastBuildDate><item><title><![CDATA[Cheat sheets et Checklists]]></title><description><![CDATA[Pour finir cette série d’articles, j’aimerais vous proposer quelques cheat sheets et checklists des recommandations du WCAG, puis un petit…]]></description><link>https://golb.ch/cheat-sheets/</link><guid isPermaLink="false">https://golb.ch/cheat-sheets/</guid><pubDate>Sun, 13 Dec 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;Pour finir cette série d’articles, j’aimerais vous proposer quelques cheat sheets et checklists des recommandations du &lt;a href=&quot;https://www.w3.org/WAI/standards-guidelines/wcag/fr&quot;&gt;WCAG&lt;/a&gt;, puis un petit mot sur Axe, dont je n’ai même pas encore parlé.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[GOLB | blog web et tech]]></title><description><![CDATA[GOLB, un blog parlant de web, de tech, de ciné, qui pose pleins de questions et qui tente parfois d'y répondre.]]></description><link>https://golb.ch</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 09 Feb 2021 15:44:34 GMT</lastBuildDate><item><title><![CDATA[Envoyer un formulaire par mail avec EmailJS]]></title><description><![CDATA[Les formulaires de contact sont devenus presque indispensables pour les sites de type vitrine. Je doute qu’ils soient toujours utiles et…]]></description><link>https://golb.ch/emailjs/</link><guid isPermaLink="false">https://golb.ch/emailjs/</guid><pubDate>Tue, 09 Feb 2021 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Les formulaires de contact sont devenus presque indispensables pour les sites de type vitrine. Je doute qu’ils soient toujours utiles et utilisés, mais malgré ça, tout le monde en veut un, et j’avoue que c’est quand même plus classe que de juste afficher une adresse mail. Mais c’est parfois le seul élément interactif du site, et donc un élément qui va demander plus de temps de développement. Et jusqu’à maintenant j’utilisais PHPMailer, et donc je devais m’embêter à héberger le site sur un serveur avec PHP uniquement pour ce foutu formulaire de contact. Et quand des services comme Netlify ou Surge.sh existent, je me dis que c’est quand même bien dommage de ne pas pouvoir les utiliser à cause d’une seule fonctionnalité.&lt;/p&gt;
+&lt;p&gt;Je me suis donc dit qu’il devait bien exister des services appelables en JavaScript, ou bien juste une bête API avec un PHPMailer derrière. Et bien j’ai trouvé l’outil &lt;a href=&quot;https://www.emailjs.com/&quot;&gt;EmailJS&lt;/a&gt; qui remplit exactement mes besoins. Ce n’est pas le seul outil existant, il y a également un autre &lt;a href=&quot;https://github.com/eleith/emailjs&quot;&gt;emailjs&lt;/a&gt; qui est opensource et qui ne nécessite pas de créer un compte sur une plateforme. Je suis très content d’EmailJS alors je n’ai pas testé son concurrent opensource, mais je le garde de côté au cas où j’atteindrais les limites de la version gratuite d’EmailJS.&lt;/p&gt;
+&lt;h2&gt;Comment ça marche?&lt;/h2&gt;
+&lt;p&gt;C’est vraiment simple. Premièrement, vous vous créez un compte. Ensuite il va falloir paramétrer un “Email Service”, c’est-à-dire un serveur d’envoi. Pour ma part, j’ai utilisé une adresse mail hébergée chez Infomaniak, donc j’ai utilisé leur serveur SMTP&lt;/p&gt;
+&lt;div style=&quot;max-width: 25rem; margin: auto&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 597px; &quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/76908c83eeb7c7e09bf88ba304adf485/cbbdd/config_email_service.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 125.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAZABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAIBAwQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/9oADAMBAAIQAxAAAAHqtfKZzQUrTnG84xvP/8QAGRAAAwADAAAAAAAAAAAAAAAAAAMTAjAz/9oACAEBAAEFAoLIKIK0O54n/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAQ/9oACAEDAQE/ATW//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAEREBL/2gAIAQIBAT8BrK85P//EABkQAAIDAQAAAAAAAAAAAAAAAAAyAQIQMP/aAAgBAQAGPwJYFF4Wz//EAB4QAAEDBAMAAAAAAAAAAAAAAAABQWEQESAhMXGh/9oACAEBAAE/IUubKKRR6vh5jivZ/9oADAMBAAIAAwAAABAU2YH/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAEDAQE/EIItf//EABgRAAMBAQAAAAAAAAAAAAAAAAABEWFx/9oACAECAQE/ENjYSrh2f//EACIQAQACAAQHAQAAAAAAAAAAAAEAERBBkdEhMVFhofDxsf/aAAgBAQABPxBSGAtVfLWfTd59N3hVmw44UOUFXY1fuUEl9K1w8r+k9TsT/9k=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;config email service&quot; title=&quot;config email service&quot; src=&quot;/static/76908c83eeb7c7e09bf88ba304adf485/cbbdd/config_email_service.jpg&quot; srcset=&quot;/static/76908c83eeb7c7e09bf88ba304adf485/08b3c/config_email_service.jpg 225w,
+/static/76908c83eeb7c7e09bf88ba304adf485/12ba2/config_email_service.jpg 450w,
+/static/76908c83eeb7c7e09bf88ba304adf485/cbbdd/config_email_service.jpg 597w&quot; sizes=&quot;(max-width: 597px) 100vw, 597px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;Ensuite vous créez un template d’email en intégrant les champs de votre formulaire avec une syntaxe en {{ moustache }}&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 900px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f8ac34ddf3366dab03700dbdae26a747/b01fd/config_email_template.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.22222222222222%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAHABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3qAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFhABAQEAAAAAAAAAAAAAAAAAARBB/9oACAEBAAE/IQdb/9oADAMBAAIAAwAAABCAD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABgQAQEBAQEAAAAAAAAAAAAAAAEAMSFh/9oACAEBAAE/ECBp5ORw2//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;config_email_template&quot;
+        title=&quot;config_email_template&quot;
+        src=&quot;/static/f8ac34ddf3366dab03700dbdae26a747/86440/config_email_template.jpg&quot;
+        srcset=&quot;/static/f8ac34ddf3366dab03700dbdae26a747/08b3c/config_email_template.jpg 225w,
+/static/f8ac34ddf3366dab03700dbdae26a747/12ba2/config_email_template.jpg 450w,
+/static/f8ac34ddf3366dab03700dbdae26a747/86440/config_email_template.jpg 900w,
+/static/f8ac34ddf3366dab03700dbdae26a747/7e63a/config_email_template.jpg 1350w,
+/static/f8ac34ddf3366dab03700dbdae26a747/b01fd/config_email_template.jpg 1627w&quot;
+        sizes=&quot;(max-width: 900px) 100vw, 900px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Finalement, vous intégrez ça à votre code. Par exemple:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; init &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;emailjs-com&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; emailjs &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;emailjs-com&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;user_votrePropreUserId&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; form &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;form&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+form&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;submit&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token parameter&quot;&gt;evt&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    evt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; form&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;#name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; client_mail &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; form&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;#mail&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; phone &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; form&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;#tel&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; email_object &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; form&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;#object&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; message &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; form&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;#message&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value
+
+    emailjs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;service_qwertzu&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;template_qwertzu&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; client_mail&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; phone&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; email_object&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; message &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        	console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Success&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        	console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Erreur&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; error&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Et voilà! D’autres fonctionnalités existent comme par exemple les réponses automatiques, l’enregistrement des contacts, l’ajout de pièces jointes et autres. Je vous laisse les tester si ça vous intéresse.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Cheat sheets et Checklists]]></title><description><![CDATA[Pour finir cette série d’articles, j’aimerais vous proposer quelques cheat sheets et checklists des recommandations du WCAG, puis un petit…]]></description><link>https://golb.ch/cheat-sheets/</link><guid isPermaLink="false">https://golb.ch/cheat-sheets/</guid><pubDate>Sun, 13 Dec 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;Pour finir cette série d’articles, j’aimerais vous proposer quelques cheat sheets et checklists des recommandations du &lt;a href=&quot;https://www.w3.org/WAI/standards-guidelines/wcag/fr&quot;&gt;WCAG&lt;/a&gt;, puis un petit mot sur Axe, dont je n’ai même pas encore parlé.&lt;/p&gt;
 &lt;h2&gt;Cheat sheets&lt;/h2&gt;
 &lt;p&gt;J’ai trouvé deux cheat sheets plutôt pas mal. Mais attention, contrairement aux checklists, ces documents ne sont qu’un résumé de certains points importants. Donc c’est bien pour les bases, mais ça reste incomplet.&lt;/p&gt;
 &lt;ul&gt;
@@ -181,23 +250,22 @@ mv ./dist/projects/firstproject.html ./dist/projects/premierprojet.html&lt;/code
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/e15e7b0a006e4e089f80d7d45de7f86a/854eb/code.jpg&quot;
+    href=&quot;/static/e15e7b0a006e4e089f80d7d45de7f86a/853c8/code.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 8.860759493670885%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAACABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAcsEwn//xAAWEAEBAQAAAAAAAAAAAAAAAAAAATH/2gAIAQEAAQUCXH//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAY/An//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAE/IU//2gAMAwEAAgADAAAAEIv/AP/EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAEDAQE/EIf/xAAVEQEBAAAAAAAAAAAAAAAAAAAQQf/aAAgBAgEBPxCn/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAERMUFR/9oACAEBAAE/EFhY9myX1n//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 9.333333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAACABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAcsEwn//xAAWEAEBAQAAAAAAAAAAAAAAAAAAATH/2gAIAQEAAQUCXH//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAY/An//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAE/IU//2gAMAwEAAgADAAAAEIv/AP/EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAEDAQE/EIf/xAAVEQEBAAAAAAAAAAAAAAAAAAAQQf/aAAgBAgEBPxCn/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAERMUFR/9oACAEBAAE/EFhY9myX1n//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;code&quot;
         title=&quot;code&quot;
-        src=&quot;/static/e15e7b0a006e4e089f80d7d45de7f86a/854eb/code.jpg&quot;
-        srcset=&quot;/static/e15e7b0a006e4e089f80d7d45de7f86a/ff44c/code.jpg 158w,
-/static/e15e7b0a006e4e089f80d7d45de7f86a/a6688/code.jpg 315w,
-/static/e15e7b0a006e4e089f80d7d45de7f86a/854eb/code.jpg 438w&quot;
+        src=&quot;/static/e15e7b0a006e4e089f80d7d45de7f86a/853c8/code.jpg&quot;
+        srcset=&quot;/static/e15e7b0a006e4e089f80d7d45de7f86a/08b3c/code.jpg 225w,
+/static/e15e7b0a006e4e089f80d7d45de7f86a/853c8/code.jpg 438w&quot;
         sizes=&quot;(max-width: 438px) 100vw, 438px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -210,23 +278,22 @@ mv ./dist/projects/firstproject.html ./dist/projects/premierprojet.html&lt;/code
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/3ae3ffbbd579336a77651bd04594d699/43cca/champ.jpg&quot;
+    href=&quot;/static/3ae3ffbbd579336a77651bd04594d699/f4e9b/champ.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 16.455696202531648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3aEB/8QAFRABAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAQUCj//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABUQAQEAAAAAAAAAAAAAAAAAABAR/9oACAEBAAE/IYf/2gAMAwEAAgADAAAAEAPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGBABAAMBAAAAAAAAAAAAAAAAAQARUSH/2gAIAQEAAT8QODUt2K6z/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 16%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3aEB/8QAFRABAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAQUCj//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABUQAQEAAAAAAAAAAAAAAAAAABAR/9oACAEBAAE/IYf/2gAMAwEAAgADAAAAEAPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGBABAAMBAAAAAAAAAAAAAAAAAQARUSH/2gAIAQEAAT8QODUt2K6z/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;champ&quot;
         title=&quot;champ&quot;
-        src=&quot;/static/3ae3ffbbd579336a77651bd04594d699/43cca/champ.jpg&quot;
-        srcset=&quot;/static/3ae3ffbbd579336a77651bd04594d699/ff44c/champ.jpg 158w,
-/static/3ae3ffbbd579336a77651bd04594d699/a6688/champ.jpg 315w,
-/static/3ae3ffbbd579336a77651bd04594d699/43cca/champ.jpg 401w&quot;
+        src=&quot;/static/3ae3ffbbd579336a77651bd04594d699/f4e9b/champ.jpg&quot;
+        srcset=&quot;/static/3ae3ffbbd579336a77651bd04594d699/08b3c/champ.jpg 225w,
+/static/3ae3ffbbd579336a77651bd04594d699/f4e9b/champ.jpg 401w&quot;
         sizes=&quot;(max-width: 401px) 100vw, 401px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;

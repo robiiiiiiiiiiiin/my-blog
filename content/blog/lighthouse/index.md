@@ -2,7 +2,7 @@
 title: Lighthouse = pas bien, mais en fait si
 date: "2020-12-11T22:12:03.284Z"
 thumbnail: "./thumbnail.jpg"
-tags: ['Testing']
+tags: ['Accessibilité']
 description: "À l'école on nous disait que Wikipedia c'était pas une source fiable. Aujourd'hui certains disent ça de Lighthouse. Mais alors qu'en est-il?"
 ---
 
