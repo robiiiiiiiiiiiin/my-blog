@@ -62,11 +62,13 @@ body {
         }
         &.mobile {
             height: 0px;
-            transition: height 1s;
+            visibility: hidden;
+            transition: visibility 1s, height 1s;
             font-size: $fontSize-4;
             &.opened {
-                height: 6em;
-                transition: height 1s;
+                height: 4em;
+                visibility: visible;
+                transition: visibility 1s, height 1s;
             }
             .list {
                 text-align: right;

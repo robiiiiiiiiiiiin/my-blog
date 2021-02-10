@@ -1,5 +1,5 @@
 ---
-title: Cheat sheets et Checklists
+title: Cheat sheets et Checklists WCAG
 date: "2020-12-13T22:12:03.284Z"
 description: "Pour clôturer cette première série d'articles sur l'accessibilité, je suis allé chercher quelques documents pour nous aider à synthétiser tout ça."
 tags: ['Accessibilité']
