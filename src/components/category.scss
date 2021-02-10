@@ -19,9 +19,6 @@
         grid-row: 1 / span 1;
         transition: width 0.5s;
     }
-    .bullet:hover, .bullet:active, .category:hover + .bullet, .category:active + .bullet {
-        width: 100%;
-    }
     .category {
         background-color: transparent;
         grid-column: 1 / span 1;
@@ -31,11 +28,15 @@
         z-index: 2;
         transition: color 0.5s;
     }
+    &:hover, &:active {
+        .category {
+            color: white;
+        }
+        .bullet {
+            width: 100%;
+        }
+    }
     &:link, &:visited {
         color: $colorFont;
-    }
-    :hover {
-        color: white;
-        transition: color 0.5s;
     }
 }
