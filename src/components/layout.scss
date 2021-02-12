@@ -63,6 +63,7 @@ body {
         &.mobile {
             height: 0px;
             visibility: hidden;
+            overflow: hidden;
             transition: visibility 1s, height 1s;
             font-size: $fontSize-4;
             &.opened {
