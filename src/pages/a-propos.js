@@ -13,9 +13,9 @@ const APropos = ({ data, location }) => {
       <SEO title="À propos" />
       <section className="a-propos">
         <h1>À propos</h1>
-        <p>Yo, moi c'est Robin, étudiant en ingénierie des médias, amateur de web, de tech, de ciné et de tulipes.</p>
-        <p>J'ai créé ce blog d'une part pour moi, pour me pousser à creuser des sujets et à aller au bout des choses. Et si en plus mes articles t'intéressent, je serais le plus heureux des hommes.</p>
-        <p>Hésite pas à lacher un commentaire!</p>
+        <p>Hello, moi c'est Robin, 22 ans, en dernière année d'HES en ingénierie des médias et amateur de web et de tech.</p>
+        <p>J'ai créé ce blog principalement pour moi-même. Écrire des articles de blog me pousse à creuser certains sujets en profondeur et à aller au bout de mes recherches et expérimentations. Mais évidemment, je serais ravi de pouvoir apprendre des choses à mes lecteurs et d'échanger avec vous!</p>
+        <p>J'aimerais aussi écrire certains articles un peu plus détentes pour parler de sujets divers. Que ce soit des recommandations d'oeuvres diverses ou des réflexions peu adaptées à mes autres réseaux sociaux.</p>
       </section>
     </Layout>
   )
