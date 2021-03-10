@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "GOLB",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "description": "",
+  "version": "1.0.0",
+  "author": "Robiiiiiiiiiiiin",
   "dependencies": {
     "@fontsource/fira-sans": "^4.1.0",
     "@fontsource/kufam": "^4.1.1",
@@ -40,15 +37,13 @@
   "devDependencies": {
     "prettier": "2.2.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "https://github.com/robiiiiiiiiiiiin/my-blog"
   },
   "scripts": {
     "build": "gatsby build",
