@@ -7,7 +7,7 @@ const Category = ({category}) => {
     const normalizedCategory = _.lowerCase(category).replace(/\s+/g, '')
 
     return (
-        <Link to={"/categorie/"+normalizedCategory} className="category-wrapper" itemProp="url">
+        <Link to={"/categorie/"+normalizedCategory+"/"} className="category-wrapper" itemProp="url">
             <div className="category">{category}&nbsp;</div>
             <div className={normalizedCategory+" bullet"}></div>
         </Link>

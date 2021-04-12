@@ -4,7 +4,7 @@ module.exports = {
     author: {
       name: `Robin Bécherraz`,
     },
-    description: `GOLB, un blog parlant de web, de tech, de ciné, qui pose pleins de questions et qui tente parfois d'y répondre.`,
+    description: `GOLB, un blog parlant de web, de tech, qui pose pleins de questions et qui tente parfois d'y répondre.`,
     siteUrl: `https://golb.ch`,
     social: {
     },

@@ -34,4 +34,4 @@ La plupart des exemples de l'article sont aussi absurdes que celui-ci. Désactiv
 
 ## Conclusion
 
-L'article démontre au final que Lighthouse est un très bon outil. Mais en effet, on peut avoir fait certaines choses très spécifiques qui passeraient entre les mailles des tests. Donc utilisez plusieurs outils de testing, et n'oubliez pas qu'un des meilleurs tests reste [le test concret](https://golb.ch/screenreaders/).
+L'article démontre au final que Lighthouse est un très bon outil. Mais en effet, on peut avoir fait certaines choses très spécifiques qui passeraient entre les mailles des tests. Donc utilisez plusieurs outils de testing, et n'oubliez pas qu'un des meilleurs tests reste [le test concret](https://golb.ch/screen-readers/).

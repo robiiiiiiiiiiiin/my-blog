@@ -127,6 +127,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 }
 
+// RSS feed
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 

@@ -13,6 +13,7 @@ const Layout = ({ location, children }) => {
 
   return (
     <div className="global-wrapper">
+
       <header className="global-header">
         <div className="header-content-wrapper">
           <div className="logo-wrapper">
@@ -21,7 +22,9 @@ const Layout = ({ location, children }) => {
           <nav className="main-nav desktop">
               <Menu></Menu>
           </nav>
-          <button className={`burger-btn ${(isOpen)?"opened":""}`} onClick={toggleMobileMenu} aria-label="afficher le menu"><span></span><span></span><span></span><span></span><span></span><span></span></button>
+          <button className={`burger-btn ${(isOpen)?"opened":""}`} onClick={toggleMobileMenu} aria-label="afficher le menu">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </button>
         </div>
         <div className="mobile-nav-wrapper">
           <nav className={`main-nav mobile ${(isOpen)?"opened":""}`}>
@@ -29,7 +32,9 @@ const Layout = ({ location, children }) => {
           </nav>
         </div>
       </header>
+
       <main className="main-wrapper">{children}</main>
+
       <footer className="global-footer">
         <div className="footer-content-wrapper">
           <div>
@@ -37,6 +42,7 @@ const Layout = ({ location, children }) => {
           </div>
         </div>
       </footer>
+
     </div>
   )
 }
