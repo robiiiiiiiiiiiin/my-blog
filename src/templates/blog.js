@@ -5,8 +5,7 @@ import Layout from "../components/layout"
 import Category from "../components/category"
 import Pagination from "../components/pagination"
 import SEO from "../components/seo"
-import Image from "gatsby-image"
-import PostInfos from "../components/post-infos"
+import ArticleCard from "../components/article-card"
 
 import "./blog.scss"
 
@@ -38,24 +37,10 @@ const BlogIndex = ({ data, location, pageContext }) => {
         <div className="articles">
           <ol className="list">
             {posts.map(post => {
-              const title = post.frontmatter.title || post.fields.slug
-              const thumbnail = post.frontmatter.thumbnail.childImageSharp.fluid
 
               return (
                 <li className="item" key={post.fields.slug}>
-                  <article className="article" itemScope >
-                    <Link to={post.fields.slug} itemProp="url">
-                      <Image className="thumbnail" fluid={thumbnail} />
-                      <h3 className="title">{title}</h3>
-                    </Link>
-                    <PostInfos category={post.frontmatter.tags[0]} date={post.frontmatter.date}></PostInfos>
-                    <p className="description"
-                      dangerouslySetInnerHTML={{
-                        __html: post.frontmatter.description || post.excerpt,
-                      }}
-                      itemProp="description"
-                    />
-                  </article>
+                  <ArticleCard post={post}></ArticleCard>
                 </li>
               )
             })}
