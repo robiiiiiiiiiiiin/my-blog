@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `GOLB | blog web et tech`,
@@ -84,6 +86,14 @@ module.exports = {
         pageTransitionDelay: 0,
         // Defers execution of google analytics script after page load
         defer: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: require("./src/utils/algolia-queries")
       },
     },
     `gatsby-plugin-react-helmet`,
