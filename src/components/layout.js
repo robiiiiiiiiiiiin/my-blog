@@ -16,19 +16,16 @@ const Layout = ({ location, children }) => {
 
       <header className="global-header">
         <div className="header-content-wrapper">
-          <div className="logo-wrapper">
-            <Link to="/"><span>G</span><span className="flipped-letter">BLO</span></Link>
-          </div>
-          <nav className="main-nav desktop">
+          <nav className="main-nav">
+            <div className="logo-wrapper">
+              <Link to="/"><span>G</span><span className="flipped-letter">BLO</span></Link>
+            </div>
+            <button className={`burger-btn ${(isOpen)?"opened":""}`} onClick={toggleMobileMenu} aria-label="afficher le menu">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </button>
+            <div className={`menu-wrapper ${(isOpen)?"opened":""}`}>
               <Menu></Menu>
-          </nav>
-          <button className={`burger-btn ${(isOpen)?"opened":""}`} onClick={toggleMobileMenu} aria-label="afficher le menu">
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-          </button>
-        </div>
-        <div className="mobile-nav-wrapper">
-          <nav className={`main-nav mobile ${(isOpen)?"opened":""}`}>
-                <Menu></Menu>
+            </div>
           </nav>
         </div>
       </header>
