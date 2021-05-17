@@ -17,7 +17,7 @@ const Layout = ({ location, children }) => {
       <header className="global-header">
         <div className="header-content-wrapper">
           <div className="logo-wrapper">
-            <Link to="/"><span>G</span><span className="flipped-letter">BLO</span></Link>
+            <Link to="/" aria-label="accueil"><span>G</span><span className="flipped-letter">BLO</span></Link>
           </div>
           <nav className="main-nav desktop">
               <Menu></Menu>

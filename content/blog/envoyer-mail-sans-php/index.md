@@ -2,7 +2,7 @@
 title: Comment envoyer un formulaire par mail sans PHP
 date: "2021-02-10T12:00:00.284Z"
 description: "Jusqu'à aujourd'hui, j'utilisais encore PHP pour envoyer des mails depuis mes sites web. Mais j'en avais marre de devoir utiliser un serveur PHP uniquement pour cette fonctionnalité. Alors j'ai trouvé et testé deux outils remédiant à ce problème: EmailJS et Netlify form handling"
-tags: ['JavaScript']
+tags: ['Jamstack']
 thumbnail: "./thumbnail.jpg"
 ---
 
