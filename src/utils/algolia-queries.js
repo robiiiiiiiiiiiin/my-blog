@@ -19,7 +19,14 @@ const pageQuery = `{
           date
           tags
           thumbnail {
-            publicURL
+            childImageSharp {
+              fluid(maxWidth: 200, quality: 90) {
+                sizes
+                srcSet
+                srcSetWebp
+                originalImg
+              }
+            }
           }
         }
         internal {

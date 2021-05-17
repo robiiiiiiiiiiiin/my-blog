@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Image from "gatsby-image"
 import PostInfos from "./post-infos"
 
-const ArticleThumb = ({ post }) => {
+const ArticleCard = ({ post }) => {
     const title = post.frontmatter.title || post.fields.slug
     const thumbnail = post.frontmatter.thumbnail.childImageSharp.fluid
 
@@ -24,4 +24,4 @@ const ArticleThumb = ({ post }) => {
 
 }
 
-export default ArticleThumb
+export default ArticleCard
