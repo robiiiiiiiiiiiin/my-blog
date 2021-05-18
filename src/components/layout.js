@@ -45,10 +45,10 @@ const Layout = ({ location, children }) => {
     setMenuIsOpen(!menuIsOpen);
   };
   const toggleSearch = () => {
-    setAnimation((searchIsOpen) ? 'slideUp' : 'slideDown')
+    setAnimation( menuIsOpen ? '' : (searchIsOpen ? 'slideUp' : 'slideDown'))
     setTimeout(() => {
       setShowCrossIcon(!showCrossIcon)
-    }, (searchIsOpen) ? 990 : 0)
+    }, (searchIsOpen && !menuIsOpen) ? 990 : 0)
     setSearchIsOpen(!searchIsOpen);
   };
 
