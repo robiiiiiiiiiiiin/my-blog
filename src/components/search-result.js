@@ -26,7 +26,6 @@ const PageHit = ({ hit }) => {
 }
 
 const HitsInIndex = ({ index }) => {
-    console.log("index", index)
     return (
         <Index indexName={index.name}>
             <Hits className={`${index.name}`} hitComponent={PageHit} />

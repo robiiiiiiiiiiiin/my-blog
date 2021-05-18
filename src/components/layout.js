@@ -33,7 +33,7 @@ const Layout = ({ location, children }) => {
 
   const HitCount = connectStateResults(({ searchResults, setHitCount }) => {
     const hitCount = searchResults && searchResults.nbHits
-    setHitCount(hitCount < 1 ? 0.3 : hitCount) /* If no hit, half a hit is added to provide space for no hit message */
+    setHitCount(hitCount < 1 ? 0.3 : hitCount) /* If no hit, still provide space for no hit message */
     return hitCount > 0 ? (
       <div style={{display: 'none'}}></div>
     ) : (
