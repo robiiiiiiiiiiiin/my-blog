@@ -33,11 +33,12 @@ const Layout = ({ location, children }) => {
 
   const HitCount = connectStateResults(({ searchResults, setHitCount }) => {
     const hitCount = searchResults && searchResults.nbHits
-    setHitCount(hitCount)
+    setHitCount(hitCount < 1 ? 0.3 : hitCount) /* If no hit, half a hit is added to provide space for no hit message */
     return hitCount > 0 ? (
-      <div id="hitCount" data-count={hitCount} style={{display: 'none'}}>
-      </div>
-    ) : null
+      <div style={{display: 'none'}}></div>
+    ) : (
+      <div className="no-result">Aucun résultat pour votre recherche :(</div>
+    )
   })
 
   const toggleMobileMenu = () => {
@@ -77,10 +78,9 @@ const Layout = ({ location, children }) => {
             <div className={`search-form-wrapper ${(searchIsOpen) ? "opened" : "" } ${(showSearchResults) ? "with-results" : "" }`} style={{'--result-count': showSearchResults ? hitCount : 0}}>
 
               <SearchBox animation={animation} isOpen={searchIsOpen} />
-              { showSearchResults && 
-                <SearchResult indices={searchIndices} />
+              { showSearchResults &&
+                <SearchResult indices={searchIndices} HitCount={HitCount} setHitCount={setHitCount}/>
               }
-              <HitCount setHitCount={setHitCount}/>
 
             </div>
           </InstantSearch>

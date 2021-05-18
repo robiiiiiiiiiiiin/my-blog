@@ -35,3 +35,15 @@ $heightMain: calc(100vh - 7rem);
 $height-search-hit: 7rem;
 
 $navBtnWidth: 1.5rem;
+
+%fixFocusOutline {
+    &:focus {
+        outline: 1px dotted black;
+    }
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+    &:focus-visible {
+        outline: 1px dotted black;
+    }
+}

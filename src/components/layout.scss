@@ -84,12 +84,12 @@ body {
             height: 0px;
             display: block;
             transition: height 1s;
-            max-height: calc(55vh + 5rem);
+            max-height: calc(55vh + 6.5rem);
             &.opened {
-                height: calc(5rem);
+                height: 5rem;
                 transition: height 1s;
                 &.with-results {
-                    height: calc(7.5rem + (var(--result-count) * #{$height-search-hit})); /* calc( without result + results space + poweredBy space) */
+                    height: calc(8rem + (var(--result-count) * #{$height-search-hit})); /* calc( without result + results space + poweredBy space) */
                 }
             }
             .search-form {
@@ -103,6 +103,9 @@ body {
                     .search-btn { order: 2; }
                 }
                 #search-input {
+                    &:focus, &:focus-visible {
+                        outline: none;
+                    }
                     flex-grow: 1;
                     background: none;
                     border: none;
@@ -111,10 +114,7 @@ body {
                     &::placeholder {
                         color: white;
                         opacity: 0.7;
-                    }
-                    &:focus, &:focus-visible {
-                        outline: none;
-                    }
+                }
                 }
                 .search-btn {
                     @extend %button;
@@ -131,14 +131,31 @@ body {
             }
             .search-results {
                 max-height: 55vh;
-                overflow: scroll;
+                overflow-y: scroll;
+                margin-top: 25px;
+                padding-right: 10px;
+                scrollbar-width: thin;
+                scrollbar-color: #242424 transparent;
+                &::-webkit-scrollbar-track {
+                    border-radius: 5px;
+                    background-color: transparent;
+                }
+                &::-webkit-scrollbar {
+                    border-radius: 5px;
+                    width: 5px;
+                    background-color: transparent;
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 5px;
+                    background-color: #242424;
+                }
                 .Articles {
                     display: flex;
                     flex-direction: row;
                     ul.ais-Hits-list {
                         list-style: none;
                         padding: 0;
-                        margin: 25px 0 0 0;
+                        margin: 0;
                         .search-hit a {
                             height: $height-search-hit;
                             display: flex;
@@ -149,6 +166,10 @@ body {
                             .title {
                                 padding-left: 1rem;
                                 overflow: hidden;
+                            }
+                            .ais-Highlight-highlighted {
+                                color: white;
+                                background: none;
                             }
                         }
                     }

@@ -25,14 +25,18 @@ const PageHit = ({ hit }) => {
     )
 }
 
-const HitsInIndex = ({ index }) => (
-    <Index indexName={index.name}>
-        <Hits className={`${index.name}`} hitComponent={PageHit} />
-    </Index>
-)
+const HitsInIndex = ({ index }) => {
+    console.log("index", index)
+    return (
+        <Index indexName={index.name}>
+            <Hits className={`${index.name}`} hitComponent={PageHit} />
+        </Index>
+    )
+}
 
-const SearchResult = ({ indices }) => (
+const SearchResult = ({ indices, HitCount, setHitCount }) => (
     <div className="search-results">
+        <HitCount setHitCount={setHitCount}/>
         {indices.map(index => (
             <HitsInIndex index={index} key={index.name}/>
         ))}
